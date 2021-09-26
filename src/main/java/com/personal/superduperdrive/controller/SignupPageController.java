@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller()
 @RequestMapping("/signup")
-public class SignupController {
+public class SignupPageController {
 
     private final UserService userService;
 
-    public SignupController(UserService userService) {
+    public SignupPageController(UserService userService) {
         this.userService = userService;
     }
 
@@ -41,7 +41,7 @@ public class SignupController {
 
         if (signupError == null) {
             model.addAttribute("signupSuccess", true);
-            return "redirect:/login";
+            return "login";
         } else {
             model.addAttribute("signupError", signupError);
         }

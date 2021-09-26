@@ -1,8 +1,6 @@
 # SuperDuperDrive
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7e633d6037ad4278b2dbd4ef51bc0bcb)](https://www.codacy.com/gh/mikegikas/MyCloudDrive/dashboard?utm_source=github.com&utm_medium=referral&utm_content=mikegikas/MyCloudDrive&utm_campaign=Badge_Grade)
-
-You have been hired by MyCloudDrive, which is a brand new company aiming to make a dent in the Cloud Storage market and is already facing stiff competition from rivals like Google Drive and Dropbox. That hasn't dampened their spirits at all, however. They want to include personal information management features in their application to differentiate them from the competition, and the minimum viable product includes three user-facing features:
+You have been hired by SuperSuperDrive, which is a brand new company aiming to make a dent in the Cloud Storage market and is already facing stiff competition from rivals like Google Drive and Dropbox. That hasn't dampened their spirits at all, however. They want to include personal information management features in their application to differentiate them from the competition, and the minimum viable product includes three user-facing features:
 
 1.  **Simple File Storage:** Upload/download/remove files
 2.  **Note Management:** Add/update/remove text notes
@@ -80,7 +78,7 @@ The home page should have a logout button that allows the user to logout of the 
 
 ### Testing
 
-Your tech lead trusts you to do a good job, but testing is important whether you're an excel number-cruncher or a full-stack coding superstar! The QA team at MyCloudDrive carries out extensive user testing. Still, your tech lead wants you to write some simple Selenium tests to verify user-facing functionality and prove that your code is feature-complete before the testers get their hands on it.
+Your tech lead trusts you to do a good job, but testing is important whether you're an excel number-cruncher or a full-stack coding superstar! The QA team at SuperDuperDrive carries out extensive user testing. Still, your tech lead wants you to write some simple Selenium tests to verify user-facing functionality and prove that your code is feature-complete before the testers get their hands on it.
 
 1.  Write tests for user signup, login, and unauthorized access restrictions.
 

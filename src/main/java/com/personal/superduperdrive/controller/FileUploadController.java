@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @Controller
-public class FileController {
+public class FileUploadController {
 
     @Autowired
     private FileService fileService;

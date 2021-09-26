@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class LoginSignupTest {
+public class LoginAndSignupTest {
 
     @LocalServerPort
     private int port;
@@ -69,7 +69,7 @@ public class LoginSignupTest {
         assertEquals(localhost + "/signup", webDriver.getCurrentUrl());
 
         // User register
-        signupPage.register("Mike", "G", "mikeg", "pass");
+        signupPage.register("abhi", "G", "abhig", "pass");
 
         timeout();
 
@@ -91,7 +91,7 @@ public class LoginSignupTest {
         timeout();
 
         // Login success and go to homepage
-        loginPage.login("mikeg", "pass");
+        loginPage.login("abhig", "pass");
 
         timeout();
 

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class CredentialController {
+public class CredentialUploadController {
 
     @Autowired
     private CredentialService credentialService;

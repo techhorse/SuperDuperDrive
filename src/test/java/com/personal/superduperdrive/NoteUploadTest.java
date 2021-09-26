@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class CredentialTest {
+public class NoteUploadTest {
 
     @LocalServerPort
     private int port;
@@ -45,8 +45,8 @@ public class CredentialTest {
     @BeforeEach
     public void beforeEach() {
         localhost = "http://localhost:" + port;
-        signupPage = new SignupPage(webDriver);
         loginPage = new LoginPage(webDriver);
+        signupPage = new SignupPage(webDriver);
         homePage = new HomePage(webDriver);
         resultPage = new ResultPage(webDriver);
     }
@@ -74,26 +74,26 @@ public class CredentialTest {
 
     @Test
     @Order(1)
-    public void addCredentialTest() throws InterruptedException {
+    public void addNoteTest() throws InterruptedException {
         registerLogin();
 
         timeout();
 
-        wait.until(ExpectedConditions.elementToBeClickable(homePage.getCredentialsTab()));
+        wait.until(ExpectedConditions.elementToBeClickable(homePage.getNoteTab()));
 
-        homePage.openCredentialsTab();
-
-        timeout();
-
-        wait.until(ExpectedConditions.elementToBeClickable(homePage.getAddCredential()));
-
-        homePage.getAddCredentialButton();
+        homePage.openNoteTab();
 
         timeout();
 
-        wait.until(ExpectedConditions.elementToBeClickable(homePage.getSaveCredential()));
+        wait.until(ExpectedConditions.elementToBeClickable(homePage.getAddNoteButton()));
 
-        homePage.createCredential("website.org", "admin", "admin123");
+        homePage.addNoteButtonClick();
+
+        timeout();
+
+        wait.until(ExpectedConditions.elementToBeClickable(homePage.getSaveNote()));
+
+        homePage.createNote("Hello World", "Trying to complete the testing");
 
         timeout();
 
@@ -103,30 +103,30 @@ public class CredentialTest {
 
         timeout();
 
-        wait.until(ExpectedConditions.elementToBeClickable(homePage.getCredentialsTab()));
+        wait.until(ExpectedConditions.elementToBeClickable(homePage.getNoteTab()));
 
-        homePage.openCredentialsTab();
+        homePage.openNoteTab();
 
         timeout();
 
-        wait.until(ExpectedConditions.visibilityOf(homePage.getCredentialUrlText()));
+        wait.until(ExpectedConditions.visibilityOf(homePage.getNoteTitleText()));
 
-        assertEquals("website.org", homePage.getCredentialUrlTextValue());
-        assertEquals("admin", homePage.getCredentialUsernameTextValue());
+        assertEquals("Hello World", homePage.getNoteTitleTextValue());
+        assertEquals("Trying to complete the testing", homePage.getNoteDescriptionTextValue());
     }
 
     @Test
     @Order(2)
-    public void editCredentialTest() throws InterruptedException {
-        wait.until(ExpectedConditions.elementToBeClickable(homePage.getEditCredentialElement()));
+    public void editNoteTest() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(homePage.getEditButtonElement()));
 
-        homePage.getEditCredential();
+        homePage.getEditNoteButton();
 
         timeout();
 
-        wait.until(ExpectedConditions.elementToBeClickable(homePage.getSaveCredential()));
+        wait.until(ExpectedConditions.elementToBeClickable(homePage.getSaveNote()));
 
-        homePage.editCredential("website.com", "mike", "admin321");
+        homePage.editNote("Thank you", "I hope i finished my project");
 
         timeout();
 
@@ -136,26 +136,30 @@ public class CredentialTest {
 
         timeout();
 
-        wait.until(ExpectedConditions.elementToBeClickable(homePage.getCredentialsTab()));
+        wait.until(ExpectedConditions.elementToBeClickable(homePage.getNoteTab()));
 
-        homePage.openCredentialsTab();
+        homePage.openNoteTab();
 
         timeout();
 
-        wait.until(ExpectedConditions.visibilityOf(homePage.getCredentialUrlText()));
+        wait.until(ExpectedConditions.visibilityOf(homePage.getNoteTitleText()));
 
-        assertEquals("website.com", homePage.getCredentialUrlTextValue());
-        assertEquals("mike", homePage.getCredentialUsernameTextValue());
+        assertEquals("Thank you", homePage.getNoteTitleTextValue());
+        assertEquals("I hope i finished my project", homePage.getNoteDescriptionTextValue());
     }
 
     @Test
     @Order(3)
-    public void deleteCredentialTest() throws InterruptedException {
+    public void deleteNoteTest() throws InterruptedException {
         timeout();
 
-        wait.until(ExpectedConditions.elementToBeClickable(homePage.getDeleteCredentialElement()));
+        wait.until(ExpectedConditions.elementToBeClickable(homePage.getDeleteNoteButtonElement()));
 
-        homePage.getDeleteCredential();
+        homePage.getDeleteNoteButton();
+
+        timeout();
+
+        wait.until(ExpectedConditions.visibilityOf(resultPage.getResultMsg()));
 
         assertEquals("were successfully deleted.", resultPage.getResultMessage());
     }
